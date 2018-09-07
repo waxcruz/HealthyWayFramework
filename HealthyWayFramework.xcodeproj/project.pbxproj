@@ -10,7 +10,7 @@
 		345B85612132F12700E2D615 /* HealthyWayFramework.h in Headers */ = {isa = PBXBuildFile; fileRef = 345B855F2132F12700E2D615 /* HealthyWayFramework.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		345B85692132F19B00E2D615 /* ExtendDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B85672132F19A00E2D615 /* ExtendDate.swift */; };
 		345B856A2132F19B00E2D615 /* MyMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 345B85682132F19A00E2D615 /* MyMethods.swift */; };
-		34EDC9BD213D8CA10016F821 /* dictionariesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EDC9BC213D8CA10016F821 /* dictionariesConstants.swift */; };
+		34ACF4A121423A9A0046EBCD /* dictionariesConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34ACF4A021423A9A0046EBCD /* dictionariesConstants.swift */; };
 		34EDC9C0213D8D310016F821 /* buildJournal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34EDC9BF213D8D310016F821 /* buildJournal.swift */; };
 /* End PBXBuildFile section */
 
@@ -20,7 +20,7 @@
 		345B85602132F12700E2D615 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		345B85672132F19A00E2D615 /* ExtendDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtendDate.swift; sourceTree = "<group>"; };
 		345B85682132F19A00E2D615 /* MyMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyMethods.swift; sourceTree = "<group>"; };
-		34EDC9BC213D8CA10016F821 /* dictionariesConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = dictionariesConstants.swift; sourceTree = "<group>"; };
+		34ACF4A021423A9A0046EBCD /* dictionariesConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dictionariesConstants.swift; sourceTree = "<group>"; };
 		34EDC9BF213D8D310016F821 /* buildJournal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buildJournal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -54,8 +54,8 @@
 		345B855E2132F12700E2D615 /* HealthyWayFramework */ = {
 			isa = PBXGroup;
 			children = (
+				34ACF49F21423A9A0046EBCD /* Constants */,
 				34EDC9BE213D8CC20016F821 /* Presentation */,
-				34EDC9BB213D8C160016F821 /* Constants */,
 				345B856B2132F1A100E2D615 /* CommonCode */,
 				345B855F2132F12700E2D615 /* HealthyWayFramework.h */,
 				345B85602132F12700E2D615 /* Info.plist */,
@@ -72,10 +72,10 @@
 			path = CommonCode;
 			sourceTree = "<group>";
 		};
-		34EDC9BB213D8C160016F821 /* Constants */ = {
+		34ACF49F21423A9A0046EBCD /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				34EDC9BC213D8CA10016F821 /* dictionariesConstants.swift */,
+				34ACF4A021423A9A0046EBCD /* dictionariesConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -166,8 +166,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				34ACF4A121423A9A0046EBCD /* dictionariesConstants.swift in Sources */,
 				34EDC9C0213D8D310016F821 /* buildJournal.swift in Sources */,
-				34EDC9BD213D8CA10016F821 /* dictionariesConstants.swift in Sources */,
 				345B856A2132F19B00E2D615 /* MyMethods.swift in Sources */,
 				345B85692132F19B00E2D615 /* ExtendDate.swift in Sources */,
 			);

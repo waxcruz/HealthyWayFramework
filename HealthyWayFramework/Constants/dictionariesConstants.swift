@@ -7,49 +7,49 @@
 //
 
 import Foundation
-enum KeysForFirebase {
+public enum KeysForFirebase {
     //MARK: - Firebase NONSQL Segment Names
-    static let NODE_JOURNAL = "Journal"
-    static let NODE_MEAL_CONTENTS = "MealContents"
-    static let NODE_SETTINGS = "Settings"
+    public static let NODE_JOURNAL = "Journal"
+    public static let NODE_MEAL_CONTENTS = "MealContents"
+    public static let NODE_SETTINGS = "Settings"
     //MARK: - Settings fields
-    static let LIMIT_FAT = "LIMIT_FAT"
-    static let LIMIT_FRUIT = "LIMIT_FRUIT"
-    static let LIMIT_PROTEIN_LOW = "LIMIT_PROTEIN_LOW"
-    static let LIMIT_PROTEIN_HIGH = "LIMIT_PROTEIN_HIGH"
-    static let LIMIT_STARCH = "LIMIT_STARCH"
-    static let LIMIT_VEGGIES = "LIMIT_VEGGIES"
+    public static let LIMIT_FAT = "LIMIT_FAT"
+    public static let LIMIT_FRUIT = "LIMIT_FRUIT"
+    public static let LIMIT_PROTEIN_LOW = "LIMIT_PROTEIN_LOW"
+    public static let LIMIT_PROTEIN_HIGH = "LIMIT_PROTEIN_HIGH"
+    public static let LIMIT_STARCH = "LIMIT_STARCH"
+    public static let LIMIT_VEGGIES = "LIMIT_VEGGIES"
     //MARK: - Stats fields
-    static let GLASSES_OF_WATER = "GLASSES_OF_WATER"
-    static let EXERCISED = "EXERCISED"
-    static let SUPPLEMENTS = "SUPPLEMENTS"
-    static let NOTES = "NOTES"
-    static let WEIGHED = "WEIGHED"
+    public static let GLASSES_OF_WATER = "GLASSES_OF_WATER"
+    public static let EXERCISED = "EXERCISED"
+    public static let SUPPLEMENTS = "SUPPLEMENTS"
+    public static let NOTES = "NOTES"
+    public static let WEIGHED = "WEIGHED"
     //MARK: - Consume fields
-    static let MEAL_DESCRIPTION = "MEAL_DESCRIPTION"
-    static let BREAKFAST_MEAL_KEY = "Breakfast"
-    static let MORNING_SNACK_MEAL_KEY = "Morning Snack"
-    static let LUNCH_MEAL_KEY = "Lunch"
-    static let AFTERNOON_SNACK_MEAL_KEY = "Afternoon Snack"
-    static let DINNER_MEAL_KEY = "Dinner"
-    static let EVENING_SNACK_MEAL_KEY = "Evening Snack"
-    static let MEAL_COMMENTS = "MEAL_COMMENTS"
+    public static let MEAL_DESCRIPTION = "MEAL_DESCRIPTION"
+    public static let BREAKFAST_MEAL_KEY = "Breakfast"
+    public static let MORNING_SNACK_MEAL_KEY = "Morning Snack"
+    public static let LUNCH_MEAL_KEY = "Lunch"
+    public static let AFTERNOON_SNACK_MEAL_KEY = "Afternoon Snack"
+    public static let DINNER_MEAL_KEY = "Dinner"
+    public static let EVENING_SNACK_MEAL_KEY = "Evening Snack"
+    public static let MEAL_COMMENTS = "MEAL_COMMENTS"
     //MARK: - MealContents fields
-    static let MEAL_PROTEIN_QUANTITY = "MEAL_PROTEIN_QUANTITY"
-    static let MEAL_FAT_QUANTITY = "MEAL_FAT_QUANTITY"
-    static let MEAL_STARCH_QUANTITY = "MEAL_STARCH_QUANTITY"
-    static let MEAL_FRUIT_QUANTITY = "MEAL_FRUIT_QUANTITY"
-    static let MEAL_VEGGIES_QUANTITY = "MEAL_VEGGIES_QUANTITY"
+    public static let MEAL_PROTEIN_QUANTITY = "MEAL_PROTEIN_QUANTITY"
+    public static let MEAL_FAT_QUANTITY = "MEAL_FAT_QUANTITY"
+    public static let MEAL_STARCH_QUANTITY = "MEAL_STARCH_QUANTITY"
+    public static let MEAL_FRUIT_QUANTITY = "MEAL_FRUIT_QUANTITY"
+    public static let MEAL_VEGGIES_QUANTITY = "MEAL_VEGGIES_QUANTITY"
 }
 
-enum FirebaseHandleIdentifiers : Int {
+public enum FirebaseHandleIdentifiers : Int {
     case settings = 0
     case journal
     case mealContents
 }
 
 
-enum FoodComponent {
+public enum FoodComponent {
     case protein
     case fat
     case starch
@@ -58,7 +58,7 @@ enum FoodComponent {
     case free
 }
 
-enum MealDataEntryNumbers : Int {
+public enum MealDataEntryNumbers : Int {
     case firstPlaceholder = 0
     case numberForWeight
     case numberForWater
@@ -71,7 +71,7 @@ enum MealDataEntryNumbers : Int {
     case lastPlaceHolder
 }
 
-enum SettingsDataEntryNumbers : Int {
+public enum SettingsDataEntryNumbers : Int {
     case firstPlaceholder = 0
     case numberForProteinLow
     case numberForFat
@@ -80,7 +80,7 @@ enum SettingsDataEntryNumbers : Int {
     case numberForProteinHigh
     case lastPlaceHolder
 }
-enum MealTotalColumns : Int {
+public enum MealTotalColumns : Int {
     case first = 0
     case columnProtein
     case columnFat
@@ -89,7 +89,7 @@ enum MealTotalColumns : Int {
     case columnVeggies
     case last
 }
-enum Meal{
+public enum Meal{
     case breakfast
     case morningSnack
     case lunch
@@ -98,8 +98,8 @@ enum Meal{
     case eveningSnack
 }
 
-enum Constants {
-    static let JOURNAL_DAY_HEADER = """
+public enum Constants {
+    public static let JOURNAL_DAY_HEADER = """
             <!DOCTYPE html>
             <html>
             <head>
@@ -115,7 +115,7 @@ enum Constants {
             <body>
             <h2>Journal</h2>
             """
-    static let JOURNAL_DAILY_TOTALS_ROW = """
+    public static let JOURNAL_DAILY_TOTALS_ROW = """
             <p>HW_RECORDED_DATE</p>
             <table style="font-size:10px;">
                 <col width="17%">
@@ -147,7 +147,7 @@ enum Constants {
                 <td> </td>
               </tr>
             """
-    static let JOURNAL_MEAL_ROW = """
+    public static let JOURNAL_MEAL_ROW = """
               <tr>
                 <td>HW_MEAL_NAME</td>
                 <td>HW_MEAL_CONTENTS_DESCRIPTION</td>
@@ -159,7 +159,7 @@ enum Constants {
                 <td>HW_MEAL_COMMENTS</td>
               </tr>
             """
-    static let JOURNAL_DATE_TOTALS = """
+    public static let JOURNAL_DATE_TOTALS = """
                 <td>Totals</td>
                 <td> </td>
                 <td>HW_DATE_TOTAL_PROTEIN</td>
@@ -171,14 +171,14 @@ enum Constants {
               </tr>
             </table>
             """
-    static let JOURNAL_DATE_STATS = """
+    public static let JOURNAL_DATE_STATS = """
             <font size="1">     Water: HW_DATE_WATER_CHECKS Supplements: HW_DATE_SUPPLEMENTS_CHECKS Exercise: HW_DATE_EXERCISE_CHECKS</font>
             <p>
             """
-    static let JOURNAL_DATE_COMMENTS = """
+    public static let JOURNAL_DATE_COMMENTS = """
             <font size="1">HW_COMMENTS</font>
             """
-    static let JOURNAL_DATE_TRAILER = """
+    public static let JOURNAL_DATE_TRAILER = """
             </p>
             </div>
             </body>
