@@ -104,7 +104,7 @@ func buildJournalDateTrailer() -> String {
 
 // MARK - helper methods
 
-public func formatJournal(clientNode node : [String : Any?]) -> NSAttributedString? {
+public func formatJournal(clientNode node : [String : Any?]) -> String? {
     // client Firebase node with 3 child nodes: Settings, Journal, and MealContents
     guard node.count > 0 else {
         return nil
@@ -148,9 +148,6 @@ public func formatJournal(clientNode node : [String : Any?]) -> NSAttributedStri
         }
         journalMockup += buildJournalDateTrailer()
     }
-    let attrStr = try! NSAttributedString(
-        data: journalMockup.data(using: String.Encoding.unicode, allowLossyConversion: true)!,
-        options:[NSAttributedString.DocumentReadingOptionKey.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
-    return attrStr
+    return journalMockup
 }
 
