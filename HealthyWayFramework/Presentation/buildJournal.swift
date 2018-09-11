@@ -8,7 +8,7 @@
 
 import Foundation
 func buildJournalDailyTotalsRow(dateOfMealString displaydate : String, settingsNode node : [String : Any?], dailyTotals maxTotals : inout [Double]) -> String {
-    var template = Constants.JOURNAL_DAILY_TOTALS_ROW
+    var template = ConstantsHTML.JOURNAL_DAILY_TOTALS_ROW
     template = template.replacingOccurrences(of: "HW_RECORDED_DATE", with: displaydate)
     var amount = node["LIMIT_PROTEIN_LOW"] as? Double ?? 0.0
     maxTotals[0] = amount
@@ -28,7 +28,7 @@ func buildJournalDailyTotalsRow(dateOfMealString displaydate : String, settingsN
     return template
 }
 func buildJournalMealRow(mealName name : String, mealDictionary meal : [String : Any?], actualTotals totals : inout [Double]) -> String {
-    var template = Constants.JOURNAL_MEAL_ROW
+    var template = ConstantsHTML.JOURNAL_MEAL_ROW
     var amount = 0.0
     template = template.replacingOccurrences(of: "HW_MEAL_NAME", with: name)
     template = template.replacingOccurrences(of: "HW_MEAL_CONTENTS_DESCRIPTION", with: meal[KeysForFirebase.MEAL_DESCRIPTION] as? String ?? "")
@@ -52,7 +52,7 @@ func buildJournalMealRow(mealName name : String, mealDictionary meal : [String :
     
 }
 func buildJournalDateTotals(dailyTotals maxTotals : [Double], dayTotals totals : [Double]) -> String {
-    var template = Constants.JOURNAL_DATE_TOTALS
+    var template = ConstantsHTML.JOURNAL_DATE_TOTALS
 
     template = template.replacingOccurrences(of: "HW_DATE_TOTAL_PROTEIN", with: String(totals[0]))
     template = template.replacingOccurrences(of: "HW_DATE_TOTAL_STARCH", with: String(totals[1]))
@@ -78,7 +78,7 @@ func buildJournalDateTotals(dailyTotals maxTotals : [Double], dayTotals totals :
     
 }
 func buildJournalDateStats(journalDateString date : String, journalNode node : [String : Any?]) -> String {
-    var template = Constants.JOURNAL_DATE_STATS
+    var template = ConstantsHTML.JOURNAL_DATE_STATS
     let journalDetails = node[date] as? [String : Any?] ?? [:]
     template = template.replacingOccurrences(of: "HW_DATE_WATER_CHECKS", with: String(repeating: "✔︎", count: journalDetails[KeysForFirebase.GLASSES_OF_WATER] as? Int ?? 0))
     template = template.replacingOccurrences(of: "HW_DATE_SUPPLEMENTS_CHECKS", with: String(repeating: "✔︎", count: journalDetails[KeysForFirebase.SUPPLEMENTS] as? Int ?? 0))
@@ -92,13 +92,13 @@ func buildJournalDateStats(journalDateString date : String, journalNode node : [
 }
 
 func buildJournalDateComments(journalDateString date : String, journalNode node : [String : Any?]) -> String {
-    var template = Constants.JOURNAL_DATE_COMMENTS
+    var template = ConstantsHTML.JOURNAL_DATE_COMMENTS
     let journalDetails = node[date] as? [String : Any?] ?? [:]
     template = template.replacingOccurrences(of: "HW_COMMENTS", with: journalDetails[KeysForFirebase.NOTES] as? String ?? "")
     return template
 }
 func buildJournalDateTrailer() -> String {
-    let template = Constants.JOURNAL_DATE_TRAILER
+    let template = ConstantsHTML.JOURNAL_DATE_TRAILER
     return template
 }
 
@@ -112,7 +112,7 @@ public func formatJournal(clientNode node : [String : Any?]) -> String? {
     let nodeSettings = node[KeysForFirebase.NODE_SETTINGS] as? [String: Any?]
     let nodeJournal = node[KeysForFirebase.NODE_JOURNAL] as? [String: Any?]
     let nodeMealContents = node[KeysForFirebase.NODE_MEAL_CONTENTS] as? [String : Any?]
-    var journalMockup = Constants.JOURNAL_DAY_HEADER
+    var journalMockup = ConstantsHTML.JOURNAL_DAY_HEADER
     var dailyTotals = Array(repeatElement(0.0, count: 5)) // Daily Totals
     if nodeJournal == nil {
         return nil

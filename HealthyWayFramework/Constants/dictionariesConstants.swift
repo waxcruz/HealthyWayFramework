@@ -98,7 +98,7 @@ public enum Meal{
     case eveningSnack
 }
 
-public enum Constants {
+public enum ConstantsHTML {
     public static let JOURNAL_DAY_HEADER = """
             <!DOCTYPE html>
             <html>
