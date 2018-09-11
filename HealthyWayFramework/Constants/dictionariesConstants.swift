@@ -99,6 +99,7 @@ public enum Meal{
 }
 
 public enum ConstantsHTML {
+    public static let LANDSCAPE = " (easier to read in landscape mode) "
     public static let JOURNAL_DAY_HEADER = """
             <!DOCTYPE html>
             <html>
@@ -114,6 +115,7 @@ public enum ConstantsHTML {
             </head>
             <body>
             <h2>Journal</h2>
+            <h3>HW_EMAIL_INSTRUCTION</h3>
             """
     public static let JOURNAL_DAILY_TOTALS_ROW = """
             <p>HW_RECORDED_DATE</p>

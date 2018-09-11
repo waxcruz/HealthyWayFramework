@@ -7,6 +7,17 @@
 //
 
 import Foundation
+
+func buildJournalHeader(isEmail : Bool) -> String {
+    var template = ConstantsHTML.JOURNAL_DAY_HEADER
+    var message = ""
+    if isEmail {
+        message = ConstantsHTML.LANDSCAPE
+    }
+    template = template.replacingOccurrences(of: "HW_EMAIL_INSTRUCTION", with: message)
+
+    return template
+}
 func buildJournalDailyTotalsRow(dateOfMealString displaydate : String, settingsNode node : [String : Any?], dailyTotals maxTotals : inout [Double]) -> String {
     var template = ConstantsHTML.JOURNAL_DAILY_TOTALS_ROW
     template = template.replacingOccurrences(of: "HW_RECORDED_DATE", with: displaydate)
@@ -104,7 +115,7 @@ func buildJournalDateTrailer() -> String {
 
 // MARK - helper methods
 
-public func formatJournal(clientNode node : [String : Any?]) -> String? {
+public func formatJournal(clientNode node : [String : Any?], isEmail : Bool) -> String? {
     // client Firebase node with 3 child nodes: Settings, Journal, and MealContents
     guard node.count > 0 else {
         return nil
@@ -112,7 +123,7 @@ public func formatJournal(clientNode node : [String : Any?]) -> String? {
     let nodeSettings = node[KeysForFirebase.NODE_SETTINGS] as? [String: Any?]
     let nodeJournal = node[KeysForFirebase.NODE_JOURNAL] as? [String: Any?]
     let nodeMealContents = node[KeysForFirebase.NODE_MEAL_CONTENTS] as? [String : Any?]
-    var journalMockup = ConstantsHTML.JOURNAL_DAY_HEADER
+    var journalMockup = buildJournalHeader(isEmail: isEmail)
     var dailyTotals = Array(repeatElement(0.0, count: 5)) // Daily Totals
     if nodeJournal == nil {
         return nil
