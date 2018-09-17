@@ -89,8 +89,8 @@ public enum MealTotalColumns : Int {
     case columnVeggies
     case last
 }
-public enum Meal{
-    case breakfast
+public enum Meal : Int {
+    case breakfast = 0
     case morningSnack
     case lunch
     case afternoonSnack
