@@ -12,6 +12,9 @@ public enum KeysForFirebase {
     public static let NODE_JOURNAL = "Journal"
     public static let NODE_MEAL_CONTENTS = "MealContents"
     public static let NODE_SETTINGS = "Settings"
+    public static let NODE_USERS = "users"
+    public static let NODE_EMAILS = "emails"
+    public static let NODE_USERDATA = "userData"
     //MARK: - Settings fields
     public static let LIMIT_FAT = "LIMIT_FAT"
     public static let LIMIT_FRUIT = "LIMIT_FRUIT"
@@ -58,17 +61,13 @@ public enum FoodComponent {
     case free
 }
 
-public enum MealDataEntryNumbers : Int {
-    case firstPlaceholder = 0
-    case numberForWeight
-    case numberForWater
-    case numberForExercise
+public enum MealDataEntryTags : Int {
+    case numberForWeight = 0
     case numberForProteinLow
     case numberForFat
     case numberForStarch
     case numberForFruit
     case numberForVeggies
-    case lastPlaceHolder
 }
 
 public enum SettingsDataEntryNumbers : Int {
