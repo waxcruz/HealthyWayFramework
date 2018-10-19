@@ -12,6 +12,7 @@ public enum KeysForFirebase {
     public static let NODE_JOURNAL = "Journal"
     public static let NODE_MEAL_CONTENTS = "MealContents"
     public static let NODE_SETTINGS = "Settings"
+    public static let NODE_STATUS = "Status"
     public static let NODE_USERS = "users"
     public static let NODE_EMAILS = "emails"
     public static let NODE_USERDATA = "userData"
@@ -43,6 +44,9 @@ public enum KeysForFirebase {
     public static let MEAL_STARCH_QUANTITY = "MEAL_STARCH_QUANTITY"
     public static let MEAL_FRUIT_QUANTITY = "MEAL_FRUIT_QUANTITY"
     public static let MEAL_VEGGIES_QUANTITY = "MEAL_VEGGIES_QUANTITY"
+    // MARK: - Status fields
+    public static let STATUS_ID = "Device"
+    public static let STATUS_DATE_POSTED = "Date Posted"
 }
 
 public enum FirebaseHandleIdentifiers : Int {
