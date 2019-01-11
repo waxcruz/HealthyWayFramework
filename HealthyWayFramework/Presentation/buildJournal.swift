@@ -91,9 +91,9 @@ func buildJournalDateTotals(dailyTotals maxTotals : [Double], dayTotals totals :
 func buildJournalDateStats(journalDateString date : String, journalNode node : [String : Any?]) -> String {
     var template = ConstantsHTML.JOURNAL_DATE_STATS
     let journalDetails = node[date] as? [String : Any?] ?? [:]
-    template = template.replacingOccurrences(of: "HW_DATE_WATER_CHECKS", with: String(repeating: "✔︎", count: journalDetails[KeysForFirebase.GLASSES_OF_WATER] as? Int ?? 0))
-    template = template.replacingOccurrences(of: "HW_DATE_SUPPLEMENTS_CHECKS", with: String(repeating: "✔︎", count: journalDetails[KeysForFirebase.SUPPLEMENTS] as? Int ?? 0))
-    let exerciseMinutes = journalDetails[KeysForFirebase.EXERCISED] as? Int ?? 0
+    template = template.replacingOccurrences(of: "HW_DATE_WATER_CHECKS", with: String(repeating: "✔︎", count: Int(journalDetails[KeysForFirebase.GLASSES_OF_WATER] as? Double ?? 0.0)))
+    template = template.replacingOccurrences(of: "HW_DATE_SUPPLEMENTS_CHECKS", with: String(repeating: "✔︎", count: Int(journalDetails[KeysForFirebase.SUPPLEMENTS] as? Double ?? 0.0)))
+    let exerciseMinutes = Int(journalDetails[KeysForFirebase.EXERCISED] as? Double ?? 0.0)
     if exerciseMinutes > 0 {
         template = template.replacingOccurrences(of: "HW_DATE_EXERCISE_CHECKS", with: "✔︎")
     } else {
@@ -152,11 +152,11 @@ public func formatJournal(clientNode node : [String : Any?], isEmail : Bool) -> 
             if let eveningSnack = meal[KeysForFirebase.EVENING_SNACK_MEAL_KEY] as? [String : Any?] {
                 journalMockup += buildJournalMealRow(mealName : KeysForFirebase.EVENING_SNACK_MEAL_KEY, mealDictionary: eveningSnack, actualTotals: &dateTotals)
             }
-            journalMockup += buildJournalDateTotals(dailyTotals: dailyTotals, dayTotals: dateTotals)
-            journalMockup += buildJournalDateStats(journalDateString: mealDate,
-                journalNode: nodeJournal!)
-            journalMockup += buildJournalDateComments(journalDateString: mealDate, journalNode: nodeJournal!)
         }
+        journalMockup += buildJournalDateTotals(dailyTotals: dailyTotals, dayTotals: dateTotals)
+        journalMockup += buildJournalDateStats(journalDateString: mealDate,
+                                               journalNode: nodeJournal!)
+        journalMockup += buildJournalDateComments(journalDateString: mealDate, journalNode: nodeJournal!)
         journalMockup += buildJournalDateTrailer()
     }
     return journalMockup
