@@ -128,6 +128,9 @@ public func formatJournal(clientNode node : [String : Any?], isEmail : Bool) -> 
     if nodeJournal == nil {
         return nil
     }
+    if nodeMealContents == nil {
+        return nil
+    }
     let sortedKeysDates = Array(nodeJournal!.keys).sorted(by: >)
     for mealDate in sortedKeysDates {
         var dateTotals = Array(repeatElement(0.0, count: 5))
